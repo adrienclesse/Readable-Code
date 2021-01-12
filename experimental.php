@@ -1,15 +1,17 @@
 <?php
 
 //main function that calls other function to order the different pizzas
-function orderPizza($pizzaType, $firstName) {
+function orderPizza($pizzaType, $firstName)
+{
     $price = calculateCosts($pizzaType);
     $address = getAddress($firstName);
     writeOrders($pizzaType,$firstName,$price,$address);
 }
 
 //function to associate each person with an address
-function getAddress($firstName) {
-    $address = 'unknown';
+function getAddress($firstName)
+{
+    $address = '';
     switch ($firstName) {
         case 'koen':
             $address="Yacht in Antwerp";
@@ -24,8 +26,9 @@ function getAddress($firstName) {
 }
 
 //Function to associate each pizza chosen with a price
-function calculateCosts($pizzaChosen){
-    $cost = 'unknown';
+function calculateCosts($pizzaChosen)
+{
+    $cost = '';
     switch ($pizzaChosen) {
         case 'marguerita':
             $cost = 5;
@@ -43,13 +46,13 @@ function calculateCosts($pizzaChosen){
 }
 
 //Function to print the informations on screen
-function writeOrders($pizzaType,$firstName,$price,$address){
+function writeOrders($pizzaType,$firstName,$price,$address)
+{
     echo 'Creating new order... <br>';
     echo ' A '. $pizzaType. ' pizza should be sent to ' . $firstName .  '<br>The address: '. $address.'</br>';
     echo 'The bill is €'.$price.'.<br>';
     echo 'Order finished.<br><br>';
 }
-
 
 orderPizza('calzone', 'koen');
 orderPizza('marguerita', 'manuele');
