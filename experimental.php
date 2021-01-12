@@ -4,8 +4,8 @@
 function orderPizza($pizzaType, $firstName) {
 
 //$type = $pizzaType;
-echo 'Creating new order... <br>';
-$p = calc_cts($pizzaType);
+    echo 'Creating new order... <br>';
+    $price = calculateCosts($pizzaType);
     $address = 'unknown';
     switch ($firstName) {
         case 'koen':
@@ -18,84 +18,62 @@ $p = calc_cts($pizzaType);
             $address = 'BeCode office';
     }
     
-
     echo ' A '. $pizzaType. ' pizza should be sent to ' . $firstName . ". <br>The address: {$address}.</br>";
-    echo'The bill is €'.$p.'.<br>';
-
-
-
-
+    echo'The bill is €'.$price.'.<br>';
     echo "Order finished.<br><br>";
 }
 
-    function total_price($p) {
-            return $p;
-    }
+/*function total_price($price) {
+        return $price;
+}*/
 
-        function test($p_type) {
-            echo "Test: type is {$p_type}. <br>";
-        }
+/*function test($pizzaChosen) {
+    echo "Test: type is {$pizzaChosen}. <br>";
+}*/
 
-function calc_cts($p_type)
+function calculateCosts($pizzaChosen)
 {
-    $cst = 'unknown';
-    switch ($p_type) {
+    $cost = 'unknown';
+    switch ($pizzaChosen) {
         case 'marguerita':
-            $cst = 5;
-            return $cst; 
+            $cost = 5;
+            return $cost; 
             break;
         case 'golden':
-            $cst = 100;
-            return $cst; 
+            $cost = 100;
+            return $cost; 
             break;
         case 'calzone':
-            $cst = 10;
-            return $cst; 
+            $cost = 10;
+            return $cost; 
             break;
-        case 'hawai' :
+        /*case 'hawai' :
             throw new Exception('Computer says no');
-            break;
+            break; */
 
     }    
 }
-   /* if ($p_type == 'marguerita') {
-        $cst = 5;
-    }
-    else
-        {
-        if ($p_type == 'golden')
-        {
-            $cst = 100;
-        }
+  
 
-            if ($p_type == 'calzone')
-            {
-                $cst = 10;
-            }
+//function ordr_piz_all()
+//{
+//$test= 0;
+orderPizza('calzone', 'koen');
+orderPizza('marguerita', 'manuele');
 
-        if ($p_type == 'hawai') {
-            throw new Exception('Computer says no');
-        }
-    }
+orderPizza('golden', 'students');
+//}
 
-    return $cst; 
-}*/
 
-            function ordr_piz_all()
-            {
-            $test= 0;
-            orderPizza('calzone', 'koen');
-            orderPizza('marguerita', 'manuele');
 
-            orderPizza('golden', 'students');
-            }
 
-function make_Allhappy($do_it) {
-if ($do_it) {
-        ordr_piz_all();
-    } else {
+
+//function make_Allhappy($do_it) {
+//if ($do_it) {
+  //      ordr_piz_all();
+  //  } else {
         // Should not do anything when false
-    }
-}
+  //  }
+//}
 
-make_Allhappy(true);
+//make_Allhappy(true);
