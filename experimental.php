@@ -1,10 +1,8 @@
 <?php
 
-
+//function to associate each person with an address
 function orderPizza($pizzaType, $firstName) {
 
-//$type = $pizzaType;
-    echo 'Creating new order... <br>';
     $price = calculateCosts($pizzaType);
     $address = 'unknown';
     switch ($firstName) {
@@ -18,21 +16,11 @@ function orderPizza($pizzaType, $firstName) {
             $address = 'BeCode office';
     }
     
-    echo ' A '. $pizzaType. ' pizza should be sent to ' . $firstName . ". <br>The address: {$address}.</br>";
-    echo'The bill is €'.$price.'.<br>';
-    echo "Order finished.<br><br>";
+     writeOrders($pizzaType,$firstName,$price,$address);
 }
 
-/*function total_price($price) {
-        return $price;
-}*/
-
-/*function test($pizzaChosen) {
-    echo "Test: type is {$pizzaChosen}. <br>";
-}*/
-
-function calculateCosts($pizzaChosen)
-{
+//Function to associate each pizza chosen with a price
+function calculateCosts($pizzaChosen){
     $cost = 'unknown';
     switch ($pizzaChosen) {
         case 'marguerita':
@@ -47,33 +35,18 @@ function calculateCosts($pizzaChosen)
             $cost = 10;
             return $cost; 
             break;
-        /*case 'hawai' :
-            throw new Exception('Computer says no');
-            break; */
-
     }    
 }
-  
 
-//function ordr_piz_all()
-//{
-//$test= 0;
+//Function to print the informations on screen
+function writeOrders($pizzaType,$firstName,$price,$address){
+    echo 'Creating new order... <br>';
+    echo ' A '. $pizzaType. ' pizza should be sent to ' . $firstName . ". <br>The address: {$address}.</br>";
+    echo'The bill is €'.$price.'.<br>';
+    echo "Order finished.<br><br>";
+}
+
+
 orderPizza('calzone', 'koen');
 orderPizza('marguerita', 'manuele');
-
 orderPizza('golden', 'students');
-//}
-
-
-
-
-
-//function make_Allhappy($do_it) {
-//if ($do_it) {
-  //      ordr_piz_all();
-  //  } else {
-        // Should not do anything when false
-  //  }
-//}
-
-//make_Allhappy(true);
