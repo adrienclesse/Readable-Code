@@ -1,13 +1,18 @@
 <?php
 
-//function to associate each person with an address
+//main function that calls other function to order the different pizzas
 function orderPizza($pizzaType, $firstName) {
-
     $price = calculateCosts($pizzaType);
+    $address = getAddress($firstName);
+    writeOrders($pizzaType,$firstName,$price,$address);
+}
+
+//function to associate each person with an address
+function getAddress($firstName) {
     $address = 'unknown';
     switch ($firstName) {
         case 'koen':
-            $address="Yach in Antwerp";
+            $address="Yacht in Antwerp";
             break;
         case 'manuele':
             $address = 'somewhere in Belgium';
@@ -15,8 +20,7 @@ function orderPizza($pizzaType, $firstName) {
         case 'students':
             $address = 'BeCode office';
     }
-    
-     writeOrders($pizzaType,$firstName,$price,$address);
+    return $address;
 }
 
 //Function to associate each pizza chosen with a price
@@ -41,9 +45,9 @@ function calculateCosts($pizzaChosen){
 //Function to print the informations on screen
 function writeOrders($pizzaType,$firstName,$price,$address){
     echo 'Creating new order... <br>';
-    echo ' A '. $pizzaType. ' pizza should be sent to ' . $firstName . ". <br>The address: {$address}.</br>";
-    echo'The bill is €'.$price.'.<br>';
-    echo "Order finished.<br><br>";
+    echo ' A '. $pizzaType. ' pizza should be sent to ' . $firstName .  '<br>The address: '. $address.'</br>';
+    echo 'The bill is €'.$price.'.<br>';
+    echo 'Order finished.<br><br>';
 }
 
 
