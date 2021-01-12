@@ -1,13 +1,11 @@
 <?php
 
 
-function orderPizza($pizzatype, $firstName) {
+function orderPizza($pizzaType, $firstName) {
 
-$type = $pizzatype;
+//$type = $pizzaType;
 echo 'Creating new order... <br>';
-$toPrint = 'A ';
- $toPrint .= $pizzatype;
-$p = calc_cts($type);
+$p = calc_cts($pizzaType);
     $address = 'unknown';
     switch ($firstName) {
         case 'koen':
@@ -21,8 +19,7 @@ $p = calc_cts($type);
     }
     
 
-        $toPrint .=   ' pizza should be sent to ' . $firstName . ". <br>The address: {$address}.";
-    echo $toPrint; echo '<br>';
+    echo ' A '. $pizzaType. ' pizza should be sent to ' . $firstName . ". <br>The address: {$address}.</br>";
     echo'The bill is €'.$p.'.<br>';
 
 
