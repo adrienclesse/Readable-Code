@@ -1,26 +1,27 @@
 <?php
 
-// fw = for who
-function ordr_pz($pizzatype, $fw) {
+
+function orderPizza($pizzatype, $firstName) {
 
 $type = $pizzatype;
 echo 'Creating new order... <br>';
 $toPrint = 'A ';
  $toPrint .= $pizzatype;
 $p = calc_cts($type);
-
     $address = 'unknown';
-    if($fw == 'koen')
-    {
-        $address = 'a yacht in Antwerp';
-    } elseif ($fw == 'manuele')
-    {
-        $address = 'somewhere in Belgium';
-    } elseif ($fw == 'students') {
-        $address = 'BeCode office';
+    switch ($firstName) {
+        case 'koen':
+            $address="Yach in Antwerp";
+            break;
+        case 'manuele':
+            $address = 'somewhere in Belgium';
+            break;
+        case 'students':
+            $address = 'BeCode office';
     }
+    
 
-        $toPrint .=   ' pizza should be sent to ' . $fw . ". <br>The address: {$address}.";
+        $toPrint .=   ' pizza should be sent to ' . $firstName . ". <br>The address: {$address}.";
     echo $toPrint; echo '<br>';
     echo'The bill is €'.$p.'.<br>';
 
@@ -41,8 +42,26 @@ $p = calc_cts($type);
 function calc_cts($p_type)
 {
     $cst = 'unknown';
+    switch ($p_type) {
+        case 'marguerita':
+            $cst = 5;
+            return $cst; 
+            break;
+        case 'golden':
+            $cst = 100;
+            return $cst; 
+            break;
+        case 'calzone':
+            $cst = 10;
+            return $cst; 
+            break;
+        case 'hawai' :
+            throw new Exception('Computer says no');
+            break;
 
-    if ($p_type == 'marguerita') {
+    }    
+}
+   /* if ($p_type == 'marguerita') {
         $cst = 5;
     }
     else
@@ -62,16 +81,16 @@ function calc_cts($p_type)
         }
     }
 
-    return $cst;
-}
+    return $cst; 
+}*/
 
             function ordr_piz_all()
             {
             $test= 0;
-            ordr_pz('calzone', 'koen');
-            ordr_pz('marguerita', 'manuele');
+            orderPizza('calzone', 'koen');
+            orderPizza('marguerita', 'manuele');
 
-            ordr_pz('golden', 'students');
+            orderPizza('golden', 'students');
             }
 
 function make_Allhappy($do_it) {
