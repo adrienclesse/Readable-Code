@@ -23,9 +23,9 @@ In this exercise, we had to reorganise a pizza ordering note processor in php to
 
 ## Tools used :scissors:
 <br>
-Building with
-+ Visual Studio Code(PHP)
-+ Markdown
+Building with : <br>
+- Visual Studio Code(PHP) <br>
+- Markdown
 
 ## Coders
 <br>
